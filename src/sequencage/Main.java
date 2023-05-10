@@ -1,15 +1,62 @@
 package sequencage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
+		// création d'un file reader pour lire le fichier d'entrée des séquences adn
+		FileReader fileReader = new FileReader(
+				"C:/Users/sylva/OneDrive/Documents/INFORMATIQUE/LANGAGES/JAVA/sequencage/src/sequencage/adn.txt");
+
+		// Création d’un bufferedReader qui utilise le fileReader
+		BufferedReader reader = new BufferedReader(fileReader);
+
+		// création d'une liste pour stocker l'ensemble des ADN lues dans le fichier
+		List<String> listAdn = new ArrayList<String>();
+
+		try {
+
+			// une fonction à essayer pouvant générer une erreur
+			String line = reader.readLine();
+			while (line != null) {
+				// enregistrement de la ligne dans la liste
+				listAdn.add(line);
+				// lecture de la prochaine ligne
+				line = reader.readLine();
+
+			}
+		}
+
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// pour chaque ligne du fichier txt, vérifier si:
+		// la personne a + de 65 ans
+		// la personne est de sexe féminin
+		// afficher le resultat de ces deux boucles
+		// faire la moyenne d'age des personnes ayant moins de 21 ans
+
+		reader.close();
+
+		// affiche la taille de la liste
+		System.out.println(listAdn.size());
+		// afficher tous les élements de la liste
+		for (String adnS : listAdn) {
+			System.out.println(adnS);
+		}
 
 		// récupérer des informations de la console
 		Scanner scanner = new Scanner(System.in);
 
-		// Demander l'ADN du patient
+		// Demander l'ADN du patien
 		System.out.println("Veuillez préciser votre ADN ");
 		String adn = scanner.nextLine();
 
