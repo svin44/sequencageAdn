@@ -77,22 +77,22 @@ public class Main {
 
 		// les conditions de l'ADN: la taille (en fonction des x présents dans l'ADN
 		switch (nombreXAdn) {
-		case 1: // // 1 x: personne entre 0.5m et 1m50
+		case 1:
 			System.out.println("Vous mesurez entre 50 cm et 1m50");
 			break;
-		case 2: // // 2 x: entre 1,51m et 1,71m
+		case 2:
 			System.out.println("Vous mesurez entre 1m51 et 1m71");
 			break;
-		case 3: // // 3 x : entre 1,71m et 1,80m
+		case 3:
 			System.out.println("Vous mesurez entre 1m71 et 1m80");
 			break;
-		case 4: // // 4 x: entre 1,81m et 1,90m
+		case 4:
 			System.out.println("Vous mesurez entre 1m81 et 1m90");
 			break;
-		case 5: // // 5 x: + de 1,90m
+		case 5:
 			System.out.println("Vous mesurez plus d'1m90");
 			break;
-		default: // le nombre de X ne correspond à aucune taille connue !
+		default:
 			System.out.println("Compte-tenu du nombre de X, nous ne pouvons pas déterminer votre taille");
 		}
 	}
