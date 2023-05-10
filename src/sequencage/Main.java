@@ -21,7 +21,7 @@ public class Main {
 		List<String> listAdn = new ArrayList<String>();
 
 		try {
-			// variable pour les lignes du fichier lues
+			// lignes du fichier lues
 			String line = reader.readLine();
 			// tant que des lignes peuvent être lues:
 			while (line != null) {
@@ -37,34 +37,48 @@ public class Main {
 		}
 
 		reader.close();
-		// variable qui va stocker le nombre de personnes de + de 65 ans
+		// le nombre de personnes de + de 65 ans
 		int ageSup = 0;
-		// variable qui va stocker le nombre de femmes
+		// le nombre de femmes
 		int nbFemmes = 0;
+		// le nombre de personnes de - de 21 ans
+		int nbJeunes = 0;
 
-		// boucle qui va vérifier certaines conditions de la liste et stocker des
-		// résultats d'age, de sexe, et de moyenne d'age
+		// vérifier certaines conditions de la liste et stocker des résultats d'age, de
+		// sexe, et de moyenne d'age
 		for (String adnS : listAdn) {
 
-			// variable qui récupère le nombre de caractères de l'ADN
+			// récupère le nombre de caractères de l'ADN
 			int adnLength = adnS.length();
-			System.out.println("ADN: " + adnS + " :Nombre de caractères de l'ADN: " + adnLength);
-
-			// vérifier si la personne a + de 65 ans
+			System.out.println("ADN: " + adnS);
+			System.out.println("Nombre de caractères de l'ADN: " + adnLength);
+			;
+			System.out.println("");
+			// si la personne a + de 65 ans
 			// les conditions d'ADN: age
-			if (adnLength < 6) {
+			if (adnLength <= 6) {
 				ageSup += 1;
 			}
 
-			// vérifier la personne est de sexe féminin
+			// personne de sexe féminin
 			// les conditions d'ADN: sexe
 			if (adnS.contains("9")) {
 				nbFemmes += 1;
 			}
 
+			// personne - de 21 ans
+			if (adnLength < 18 && adnLength > 6) {
+				nbJeunes += 1;
+			}
+
 		}
+		// % de personnes se situant dans la tranche - de 21 ans
+		int partJeunes = nbJeunes * 100 / listAdn.size();
+
 		System.out.println("Le nombre de personnes de plus de 65 ans est de: " + ageSup);
 		System.out.println("Le nombre de personnes de sexe féminin est de: " + nbFemmes);
+		System.out.println("Le nombre de personnes de moins de 21 ans est de : " + nbJeunes + ". Cela représente "
+				+ partJeunes + " % des personnes enregistrées. ");
 
 	}
 }
